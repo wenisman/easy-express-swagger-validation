@@ -1,0 +1,60 @@
+swagger: '2.0'
+info:
+  version: 0.0.1
+  title: sample-api
+  description: sample swagger for a validation test
+basePath: /
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /sample/testGet/{pathParam}:
+    get:
+      summary: sample path to demonstrate a path parameter, query parameter and header
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: query
+          name: queryParam
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: pathParam
+          required: true
+          schema: 
+            type: string
+  /sample/testSet:
+    post:
+      summary: sample post
+      responses:
+        '200':
+          description: OK
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: The sample post body
+          required: true
+          schema:
+            $ref: '#/definitions/SampleRequest'    
+
+definitions:
+  SampleRequest:
+    type: object
+    properties:
+      query:
+        $ref: '#/definitions/SampleQuery'
+
+  SampleQuery:
+    type: object
+    properties:
+      val: 
+        type: string
+    required:
+      - val
