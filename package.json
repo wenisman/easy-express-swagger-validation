@@ -25,6 +25,7 @@
   "homepage": "https://github.com/wenisman/easy-express-swagger-validation#readme",
   "dependencies": {
     "ajv": "^6.5.0",
+    "deepmerge": "^2.1.1",
     "swagger-parser": "^5.0.0"
   },
   "devDependencies": {
